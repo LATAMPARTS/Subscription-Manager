@@ -41,6 +41,11 @@ router.post('/', (req, res) => {
   if (!name || price == null || !nextPaymentDate) {
     return res.status(400).json({ error: 'Campos requeridos: name, price, nextPaymentDate' });
   }
+
+  if (billingCycle === 'annual' && price > 100) {
+    return res.status(400).json({ error: 'Para ciclo anual, enviar el precio mensual equivalente' });
+  }
+
   const result = db.prepare(`
     INSERT INTO subscriptions (name, price, billing_cycle, category, next_payment_date, color, icon, status)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)

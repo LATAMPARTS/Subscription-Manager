@@ -30,7 +30,7 @@ if (count.count === 0) {
 
   const seedData = [
     { name: 'Netflix', price: 15.99, billingCycle: 'monthly', category: 'entertainment', nextPaymentDate: '2026-04-24', color: '#E50914', icon: 'tv', status: 'active' },
-    { name: 'NordVPN', price: 12.99, billingCycle: 'monthly', category: 'software', nextPaymentDate: '2026-04-24', color: '#4687FF', icon: 'shield', status: 'active' },
+    { name: 'NordVPN', price: 3.49, billingCycle: 'annual', category: 'software', nextPaymentDate: '2026-04-24', color: '#4687FF', icon: 'vpn_lock', status: 'active' },
     { name: 'Claude AI', price: 20.00, billingCycle: 'monthly', category: 'software', nextPaymentDate: '2026-05-02', color: '#D97757', icon: 'psychology', status: 'active' },
     { name: 'Disney+', price: 7.99, billingCycle: 'monthly', category: 'entertainment', nextPaymentDate: '2026-05-06', color: '#113CCF', icon: 'star', status: 'active' },
   ];
