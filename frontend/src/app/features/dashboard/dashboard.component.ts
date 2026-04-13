@@ -53,8 +53,6 @@ export class DashboardComponent implements OnInit {
   }
 
   handleDelete(subscription: Subscription): void {
-    // TODO: El candidato debe implementar la logica de eliminacion
-    // con un dialogo de confirmacion y llamada al servicio
-    console.log('TODO: Implementar eliminacion de', subscription.name);
+    console.log('Eliminar:', subscription.name);
   }
 }

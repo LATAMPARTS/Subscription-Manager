@@ -66,35 +66,6 @@
     </div>
   </div>
 
-  <!-- ============================================================
-       TODO: Implementa la lista de suscripciones
-
-       Aqui va la lista principal. Usa `filteredSubscriptions()` como
-       fuente de datos (una vez que implementes el filtrado arriba).
-
-       Cada item de la lista debe mostrar:
-         - Icono o color de marca de la suscripcion
-         - Nombre y plan/categoria
-         - Precio mensual
-         - Fecha de proxima renovacion
-         - Un boton o link de "Gestionar" que lleve a editar o al detalle
-
-       Puedes usar el patron de lista del diseño de referencia
-       (ver screenshots/subscriptions-desktop.png y subscriptions-mobile.png)
-       o inventar tu propio layout.
-
-       PISTA: Revisa como el dashboard renderiza las cards con @for:
-         @for (sub of filteredSubscriptions(); track sub.id) {
-           ...
-         } @empty {
-           ... estado vacio ...
-         }
-
-       No olvides manejar:
-         - Estado de carga (isLoading())
-         - Estado vacio (cuando no hay resultados)
-         - Responsive (lista en desktop, stack en mobile)
-       ============================================================ -->
   <section class="subscription-list">
     @if (isLoading()) {
       <div class="loading-state">
