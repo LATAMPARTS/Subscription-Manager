@@ -1,0 +1,116 @@
+<div class="subscriptions-page">
+
+  <!-- Header -->
+  <header class="page-header">
+    <div>
+      <h1 class="headline-md">Mis Suscripciones</h1>
+      <p class="body-md">Gestiona tus servicios digitales</p>
+    </div>
+    <button class="btn-add" (click)="navigateToAdd()">
+      <span class="material-icons-outlined">add</span>
+      Nueva Suscripcion
+    </button>
+  </header>
+
+  <!-- Barra de busqueda -->
+  <div class="search-bar">
+    <span class="material-icons-outlined search-icon">search</span>
+    <input
+      type="text"
+      placeholder="Buscar suscripcion..."
+      [ngModel]="searchQuery()"
+      (ngModelChange)="onSearch($event)"
+      class="search-input"
+    />
+  </div>
+
+  <!-- Filtros por categoria -->
+  <div class="filter-chips">
+    <button
+      class="chip"
+      [class.active]="activeFilter() === 'all'"
+      (click)="setFilter('all')"
+    >
+      Todas
+    </button>
+    @for (cat of categories; track cat.value) {
+      <button
+        class="chip"
+        [class.active]="activeFilter() === cat.value"
+        (click)="setFilter(cat.value)"
+      >
+        <span class="material-icons-outlined chip-icon">{{ cat.icon }}</span>
+        {{ cat.label }}
+      </button>
+    }
+  </div>
+
+  <!-- Resumen -->
+  <div class="summary-bar">
+    <div class="summary-item">
+      <span class="label-md">GASTO MENSUAL</span>
+      <span class="display-sm">{{ stats().totalMonthly | currency:'USD':'symbol':'1.2-2' }}</span>
+    </div>
+    <div class="summary-item">
+      <span class="label-md">ACTIVAS</span>
+      <span class="display-sm">{{ stats().count }}</span>
+    </div>
+    <div class="summary-item">
+      <span class="label-md">PROXIMO COBRO</span>
+      @if (nextRenewal(); as next) {
+        <span class="display-sm next-date">{{ next.nextPaymentDate | date:'MMM d' }}</span>
+        <span class="body-md">{{ next.name }}</span>
+      } @else {
+        <span class="body-md">—</span>
+      }
+    </div>
+  </div>
+
+  <!-- ============================================================
+       TODO: Implementa la lista de suscripciones
+
+       Aqui va la lista principal. Usa `filteredSubscriptions()` como
+       fuente de datos (una vez que implementes el filtrado arriba).
+
+       Cada item de la lista debe mostrar:
+         - Icono o color de marca de la suscripcion
+         - Nombre y plan/categoria
+         - Precio mensual
+         - Fecha de proxima renovacion
+         - Un boton o link de "Gestionar" que lleve a editar o al detalle
+
+       Puedes usar el patron de lista del diseño de referencia
+       (ver screenshots/subscriptions-desktop.png y subscriptions-mobile.png)
+       o inventar tu propio layout.
+
+       PISTA: Revisa como el dashboard renderiza las cards con @for:
+         @for (sub of filteredSubscriptions(); track sub.id) {
+           ...
+         } @empty {
+           ... estado vacio ...
+         }
+
+       No olvides manejar:
+         - Estado de carga (isLoading())
+         - Estado vacio (cuando no hay resultados)
+         - Responsive (lista en desktop, stack en mobile)
+       ============================================================ -->
+  <section class="subscription-list">
+    @if (isLoading()) {
+      <div class="loading-state">
+        <span class="material-icons-outlined loading-spinner">sync</span>
+        <p class="body-md">Cargando...</p>
+      </div>
+    } @else {
+      <div class="list-placeholder">
+        <span class="material-icons-outlined placeholder-icon">format_list_bulleted</span>
+        <p class="body-lg">La lista de suscripciones va aqui</p>
+        <p class="body-md">
+          Implementa la lista usando <code>filteredSubscriptions()</code> como fuente de datos.
+          Consulta los screenshots en <code>/screenshots/</code> para referencia.
+        </p>
+      </div>
+    }
+  </section>
+
+</div>

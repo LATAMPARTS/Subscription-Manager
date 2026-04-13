@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { SubscriptionsComponent } from './features/subscriptions/subscriptions.component';
 
 export const routes: Routes = [
   {
@@ -9,6 +10,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'subscriptions', component: SubscriptionsComponent },
 
       // ============================================================
       // TODO: Agrega las rutas para los componentes que implementes
@@ -26,6 +28,9 @@ export const routes: Routes = [
       // PISTA: El componente SubscriptionFormComponent puede manejar
       // tanto creacion como edicion usando ActivatedRoute.params
       // para detectar si hay un :id presente.
+      //
+      // IMPORTANTE: 'subscriptions/new' debe ir ANTES de 'subscriptions/:id'
+      // para que Angular no interprete "new" como un id.
     ]
   }
 ];

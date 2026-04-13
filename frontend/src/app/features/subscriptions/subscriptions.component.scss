@@ -1,0 +1,174 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.subscriptions-page {
+  max-width: 960px;
+}
+
+// Header
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: $spacing-xl;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+}
+
+.btn-add {
+  @include btn-primary;
+  text-decoration: none;
+}
+
+// Busqueda
+.search-bar {
+  position: relative;
+  margin-bottom: $spacing-lg;
+}
+
+.search-icon {
+  position: absolute;
+  left: $spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: $outline;
+}
+
+.search-input {
+  @include input-field;
+  padding-left: 2.75rem;
+  border-radius: $radius-lg;
+  background: $surface-container-lowest;
+  box-shadow: $shadow-ambient;
+  border-bottom: none;
+
+  &:focus {
+    box-shadow: $shadow-focus;
+    border-bottom: none;
+  }
+}
+
+// Filtros
+.filter-chips {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xl;
+  overflow-x: auto;
+  padding-bottom: $spacing-xs;
+
+  // Ocultar scrollbar pero mantener funcionalidad
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+.chip {
+  @include btn-secondary;
+  padding: $spacing-sm $spacing-md;
+  font-size: 0.8125rem;
+  background: $surface-container;
+  color: $on-surface-variant;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+
+  &.active {
+    background: $on-surface;
+    color: $surface;
+  }
+}
+
+.chip-icon {
+  font-size: 16px;
+}
+
+// Resumen
+.summary-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+  margin-bottom: $spacing-2xl;
+
+  @include mobile {
+    grid-template-columns: 1fr 1fr;
+
+    .summary-item:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+.summary-item {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .display-sm {
+    font-size: 1.75rem;
+
+    @include mobile {
+      font-size: 1.5rem;
+    }
+  }
+
+  .next-date {
+    color: $tertiary;
+  }
+}
+
+// Lista — placeholder para el candidato
+.subscription-list {
+  min-height: 300px;
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-3xl;
+  gap: $spacing-md;
+
+  .loading-spinner {
+    font-size: 32px;
+    color: $primary-container;
+    animation: spin 1.5s linear infinite;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.list-placeholder {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-3xl;
+  gap: $spacing-sm;
+  text-align: center;
+  border: 2px dashed $outline-variant;
+  background: transparent;
+  box-shadow: none;
+
+  .placeholder-icon {
+    font-size: 48px;
+    color: $outline;
+  }
+
+  code {
+    background: $surface-container;
+    padding: 2px 6px;
+    border-radius: $radius-sm;
+    font-size: 0.8125rem;
+  }
+}

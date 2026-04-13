@@ -14,6 +14,7 @@ Abre http://localhost:4200. Necesitas que el backend este corriendo en el puerto
 ## Que ya esta hecho
 
 - **Dashboard** completo con tarjetas de suscripcion, resumen mensual y widget de renovaciones.
+- **Mis Suscripciones** parcial — tiene header, busqueda, filtros y resumen. Falta la lista y el filtrado.
 - **Layout responsive** con sidebar en desktop y bottom nav en mobile (breakpoint: 768px).
 - **Design system** con tokens SCSS, tipografia (Manrope + Inter) y mixins listos para usar.
 - **Servicio** con `getAll()`, `getStats()` y `getById()` funcionando.
@@ -26,6 +27,7 @@ Revisa el dashboard para entender los patrones. Es la referencia de lo que esper
 Los archivos con TODO estan en su sitio, solo hay que implementarlos:
 
 - `src/app/core/services/subscription.service.ts` → Faltan `create()`, `update()`, `delete()`
+- `src/app/features/subscriptions/subscriptions.component.ts` → Filtrado + lista + acciones
 - `src/app/features/subscription-form/subscription-form.component.ts` → Formulario de crear/editar
 - `src/app/shared/components/confirm-dialog/confirm-dialog.component.ts` → Dialogo de confirmacion
 - `src/app/features/subscription-detail/subscription-detail.component.ts` → Vista de detalle (bonus)
@@ -42,6 +44,7 @@ src/
 │   ├── layout/                              → Shell de la app (sidebar + bottom nav)
 │   ├── features/
 │   │   ├── dashboard/                       → Ya implementado - REFERENCIA
+│   │   ├── subscriptions/                   → Parcial (falta lista y filtrado)
 │   │   ├── subscription-form/               → Por implementar
 │   │   └── subscription-detail/             → Por implementar (bonus)
 │   ├── shared/components/                   → confirm-dialog por implementar

@@ -67,7 +67,25 @@ Mira los que ya estan para seguir el mismo patron. No tiene mucha ciencia.
 
 ---
 
-### 2. Formulario de nueva suscripcion (~45-60 min)
+### 2. Lista de suscripciones (~30 min)
+
+**Donde:** `src/app/features/subscriptions/subscriptions.component.ts` y `.html`
+
+La pagina de "Mis Suscripciones" ya tiene el header, la barra de busqueda, los filtros por categoria y el resumen. Lo que falta es:
+
+- **Implementar el filtrado** — La computed signal `filteredSubscriptions` esta vacia. Debe combinar el filtro de busqueda por nombre (`searchQuery`) y el filtro por categoria (`activeFilter`).
+- **Implementar la lista** — Donde dice "La lista de suscripciones va aqui" hay que renderizar las suscripciones con `@for`. Cada item debe mostrar icono/color, nombre, categoria, precio y fecha de renovacion.
+- **Implementar las acciones** — Los metodos `navigateToEdit()`, `navigateToDetail()` y `handleDelete()` estan vacios.
+
+**Que esperamos ver:**
+- Que el filtrado funcione combinando busqueda + categoria
+- Que la lista siga el design system (mira los screenshots en `/screenshots/subscriptions-*.png`)
+- Responsive: filas en desktop, stack en mobile
+- Que se maneje el estado vacio cuando no hay resultados
+
+---
+
+### 3. Formulario de nueva suscripcion (~40 min)
 
 **Donde:** `src/app/features/subscription-form/subscription-form.component.ts`
 
@@ -92,7 +110,7 @@ Al enviar: llamar a `create()` y redirigir al dashboard.
 
 ---
 
-### 3. Editar suscripcion (~30 min)
+### 4. Editar suscripcion (~20 min)
 
 Reutiliza el mismo componente del formulario. La idea es que detecte si viene un `:id` en la ruta.
 
@@ -106,7 +124,7 @@ Reutiliza el mismo componente del formulario. La idea es que detecte si viene un
 
 ---
 
-### 4. Eliminar suscripcion (~20 min)
+### 5. Eliminar suscripcion (~15 min)
 
 **Donde:** `src/app/shared/components/confirm-dialog/confirm-dialog.component.ts`
 
@@ -121,7 +139,7 @@ Las cards del dashboard ya tienen un menu con las opciones "Editar" y "Eliminar"
 
 ---
 
-### 5. Bonus (si te sobra tiempo)
+### 6. Bonus (si te sobra tiempo)
 
 Nada de esto es obligatorio, pero suma:
 
@@ -130,17 +148,6 @@ Nada de esto es obligatorio, pero suma:
 - Vista de detalle en `/subscriptions/:id`
 - Un componente de estado vacio reutilizable
 - Toggle para pausar/reactivar una suscripcion
-
----
-
-## Como evaluamos
-
-| | Peso | Que miramos |
-|-|------|-------------|
-| **Codigo y TypeScript** | 30% | Que el tipado sea correcto, que los nombres tengan sentido, que la estructura este limpia |
-| **Angular** | 30% | Uso de signals, standalone components, reactive forms, la nueva sintaxis de control flow |
-| **UI/UX** | 25% | Que respete el design system, que sea responsive, que maneje bien los estados de carga y error |
-| **Bonus** | 15% | Iniciativa, detalles, cosas que se te ocurran por tu cuenta |
 
 ---
 
@@ -158,7 +165,9 @@ Nada de esto es obligatorio, pero suma:
 
 En `/screenshots/` vas a encontrar:
 
-- `dashboard-desktop.png` — Como se ve el dashboard en escritorio
-- `dashboard-mobile.png` — Lo mismo pero en movil
-- `form-desktop.png` — El formulario en escritorio
-- `form-mobile.png` — El formulario en movil
+- `dashboard-desktop.png` — Dashboard en escritorio
+- `dashboard-mobile.png` — Dashboard en movil
+- `subscriptions-desktop.png` — Pagina de suscripciones en escritorio
+- `subscriptions-mobile.png` — Pagina de suscripciones en movil
+- `form-desktop.png` — Formulario en escritorio
+- `form-mobile.png` — Formulario en movil
