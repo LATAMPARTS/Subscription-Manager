@@ -1,0 +1,90 @@
+@use 'variables' as *;
+
+// === Responsive ===
+@mixin desktop {
+  @media (min-width: $breakpoint-mobile) { @content; }
+}
+
+@mixin mobile {
+  @media (max-width: ($breakpoint-mobile - 1px)) { @content; }
+}
+
+// === Cards ===
+@mixin card {
+  background: $surface-container-lowest;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-ambient;
+  padding: $spacing-lg;
+}
+
+@mixin card-with-strip {
+  @include card;
+  border-left: 4px solid var(--brand-color, $primary-container);
+}
+
+// === Botones ===
+@mixin btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  background: linear-gradient(135deg, $primary, $primary-container);
+  color: $on-primary;
+  border: none;
+  border-radius: $radius-full;
+  padding: 0.75rem 2rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  &:hover { opacity: 0.92; transform: translateY(-1px); }
+  &:active { transform: translateY(0); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+}
+
+@mixin btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  background: $secondary-fixed-dim;
+  color: $on-secondary-fixed-variant;
+  border: none;
+  border-radius: $radius-full;
+  padding: 0.625rem 1.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  &:hover { opacity: 0.85; }
+}
+
+// === Glassmorphism ===
+@mixin glass {
+  background: rgba($surface, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+// === Ghost border ===
+@mixin ghost-border {
+  outline: 1px solid rgba($outline-variant, 0.15);
+}
+
+// === Input field ===
+@mixin input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: $on-surface;
+  background: $surface-container-high;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: $radius-md $radius-md 0 0;
+  transition: border-color 0.2s ease;
+  &:focus { outline: none; border-bottom-color: $primary; }
+  &::placeholder { color: $outline; }
+}

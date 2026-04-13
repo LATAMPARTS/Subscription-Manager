@@ -1,0 +1,79 @@
+// ============================================================
+// Design System: "The Financial Curator"
+// Tokens extraidos de Stitch (project: Subscription Manager App)
+// ============================================================
+
+// Primary
+$primary: #0040a1;
+$primary-container: #0056d2;
+$on-primary: #ffffff;
+$on-primary-container: #ccd8ff;
+$primary-fixed: #dae2ff;
+$primary-fixed-dim: #b2c5ff;
+
+// Secondary
+$secondary: #4a5d8e;
+$secondary-container: #b3c5fd;
+$secondary-fixed-dim: #b3c5fd;
+$on-secondary-fixed-variant: #324575;
+
+// Tertiary (Renewal Pulse)
+$tertiary: #822800;
+$tertiary-container: #a93802;
+$tertiary-fixed: #ffdbcf;
+$tertiary-fixed-dim: #ffb59b;
+
+// Surface hierarchy
+$surface: #f8f9fa;
+$surface-bright: #f8f9fa;
+$surface-dim: #d9dadb;
+$surface-container: #edeeef;
+$surface-container-high: #e7e8e9;
+$surface-container-highest: #e1e3e4;
+$surface-container-low: #f3f4f5;
+$surface-container-lowest: #ffffff;
+
+// On-surface
+$on-surface: #191c1d;
+$on-surface-variant: #424654;
+
+// Outline
+$outline: #737785;
+$outline-variant: #c3c6d6;
+
+// Error
+$error: #ba1a1a;
+$error-container: #ffdad6;
+$on-error: #ffffff;
+
+// Inverse
+$inverse-surface: #2e3132;
+$inverse-on-surface: #f0f1f2;
+$inverse-primary: #b2c5ff;
+
+// Elevation
+$shadow-ambient: 0 20px 40px rgba(25, 28, 29, 0.04);
+$shadow-elevated: 0 8px 24px rgba(25, 28, 29, 0.08);
+$shadow-focus: 0 4px 12px rgba(25, 28, 29, 0.06);
+
+// Radii
+$radius-sm: 0.25rem;
+$radius-md: 0.5rem;
+$radius-lg: 0.75rem;
+$radius-full: 9999px;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
+
+// Layout
+$sidebar-width: 260px;
+$bottom-nav-height: 64px;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
